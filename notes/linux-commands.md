@@ -1,4 +1,4 @@
-# Linux Commands Learned
+# Linux Command Reference
 
 ## ssh
 
@@ -15,6 +15,14 @@ ssh username@host -p port
 ```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
+
+**Important options:**
+
+| Option | Meaning                         |
+| ------ | ------------------------------- |
+| -p     | Specify the port number         |
+| -i     | Use a specific private key file |
+| -v     | Enable verbose/debug output     |
 
 ---
 
@@ -36,10 +44,14 @@ ls -l
 ls -la
 ```
 
-**Notes:**
+**Important options:**
 
-* `-l` = long listing format
-* `-a` = show hidden files
+| Option | Meaning                         |
+| ------ | ------------------------------- |
+| -l     | Long listing format             |
+| -a     | Show hidden files               |
+| -h     | Human-readable file sizes       |
+| -R     | Recursively list subdirectories |
 
 ---
 
@@ -56,8 +68,16 @@ cat filename
 **Example:**
 
 ```bash
-cat readme.txt
+cat notes.txt
 ```
+
+**Important options:**
+
+| Option | Meaning                     |
+| ------ | --------------------------- |
+| -n     | Show line numbers           |
+| -b     | Number non-empty lines      |
+| -E     | Show end-of-line characters |
 
 ---
 
@@ -76,6 +96,13 @@ file filename
 ```bash
 file data.txt
 ```
+
+**Important options:**
+
+| Option | Meaning        |
+| ------ | -------------- |
+| -b     | Brief output   |
+| -i     | Show MIME type |
 
 ---
 
@@ -97,11 +124,23 @@ find . -size 1033c
 find / -user bandit7 -group bandit6 -size 33c
 ```
 
+**Important options:**
+
+| Option  | Meaning                     |
+| ------- | --------------------------- |
+| -name   | Search by filename          |
+| -type f | Files only                  |
+| -type d | Directories only            |
+| -size   | Search by size              |
+| -user   | Search by owner             |
+| -group  | Search by group             |
+| -mtime  | Search by modification time |
+
 ---
 
 ## grep
 
-Searches text for a pattern.
+Searches text using patterns.
 
 **Syntax:**
 
@@ -115,13 +154,23 @@ grep pattern filename
 grep millionth data.txt
 ```
 
+**Important options:**
+
+| Option | Meaning                 |
+| ------ | ----------------------- |
+| -i     | Ignore case             |
+| -n     | Show line numbers       |
+| -r     | Search recursively      |
+| -v     | Show non-matching lines |
+| -c     | Count matching lines    |
+
 ---
 
 ## strings
 
 Extracts readable text from binary files.
 
-**Example:**
+**Examples:**
 
 ```bash
 strings data.txt
@@ -130,6 +179,13 @@ strings data.txt
 ```bash
 strings data.txt | grep =
 ```
+
+**Important options:**
+
+| Option    | Meaning               |
+| --------- | --------------------- |
+| -n NUMBER | Minimum string length |
+| -a        | Scan entire file      |
 
 ---
 
@@ -142,6 +198,15 @@ Sorts lines alphabetically.
 ```bash
 sort data.txt
 ```
+
+**Important options:**
+
+| Option | Meaning                     |
+| ------ | --------------------------- |
+| -r     | Reverse order               |
+| -n     | Numeric sort                |
+| -u     | Remove duplicate lines      |
+| -k     | Sort using a specific field |
 
 ---
 
@@ -159,11 +224,25 @@ uniq data.txt
 sort data.txt | uniq -u
 ```
 
+**Important options:**
+
+| Option | Meaning                   |
+| ------ | ------------------------- |
+| -u     | Show unique lines only    |
+| -d     | Show duplicate lines only |
+| -c     | Count occurrences         |
+
 ---
 
 ## base64
 
 Encodes or decodes Base64 data.
+
+**Encode:**
+
+```bash
+echo "hello" | base64
+```
 
 **Decode:**
 
@@ -171,8 +250,26 @@ Encodes or decodes Base64 data.
 base64 -d data.txt
 ```
 
-**Encode:**
+**Important options:**
 
-```bash
-echo "hello" | base64
-```
+| Option | Meaning                 |
+| ------ | ----------------------- |
+| -d     | Decode Base64 data      |
+| -w     | Set line wrapping width |
+
+---
+
+## Commands Practiced Through Bandit
+
+* ssh
+* ls
+* cat
+* file
+* find
+* grep
+* strings
+* sort
+* uniq
+* base64
+
+These commands were learned and practiced while completing the OverTheWire Bandit wargame.
